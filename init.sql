@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS business_users(
 	last_name VARCHAR(75) NOT NULL,
 	phone_number INT(20) NOT NULL,
 	discription VARCHAR(300),
-	location VARCHAR(255) NOT NULL,
 	email VARCHAR(150) NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
