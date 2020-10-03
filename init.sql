@@ -19,26 +19,34 @@ CREATE TABLE IF NOT EXISTS categories(
 CREATE TABLE IF NOT EXISTS business_users(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	company_name VARCHAR(100) NOT NULL,
-	category_id INT FOREIGN KEY REFERENCES categories(id) NOT NULL,	
+	category_id INT NOT NULL,	
+	business_hours INT NOT NULL,
+	offers INT,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(75) NOT NULL,
 	phone_number INT(20) NOT NULL,
 	description VARCHAR(300),
 	email VARCHAR(150) NOT NULL,
-	password VARCHAR(255) NOT NULL
+	password VARCHAR(255) NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (offers) REFERENCES offers(id)
 );
 
 CREATE TABLE IF NOT EXISTS addresses(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	company_name VARCHAR(100) NOT NULL,
+	company_id INT NOT NULL,
 	city VARCHAR(100) NOT NULL,
 	street_name VARCHAR(100) NOT NULL,
 	post_code INT(10) NOT NULL,
-	built_number INT(5) NOT NULL
+	built_number INT(5) NOT NULL, 
+    FOREIGN KEY(company_id) REFERENCES business_users(id)
 );
 
 CREATE TABLE IF NOT EXISTS offers(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	date_from_to VARCHAR(30),
+	coupon_count INT,
+	business_user_id INT,
 	description VARCHAR(255) NOT NULL,
 	points INT NOT NULL
 );
