@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS categories(
 CREATE TABLE IF NOT EXISTS business_users(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	company_name VARCHAR(100) NOT NULL,
-	category_id INT NOT NULL,	
+	category_id INT FOREIGN KEY REFERENCES categories(id) NOT NULL,	
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(75) NOT NULL,
 	phone_number INT(20) NOT NULL,
