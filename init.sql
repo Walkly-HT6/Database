@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS active_tickets(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	ticket_value VARCHAR(10) NOT NULL,
 	offer_id INT NOT NULL,
-	FOREIGN KEY (offer_id) REFERENCES offer_id	
+	FOREIGN KEY (offer_id) REFERENCES offers(id)
 );
 
 
