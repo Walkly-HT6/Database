@@ -19,12 +19,12 @@ CREATE TABLE IF NOT EXISTS categories(
 CREATE TABLE IF NOT EXISTS business_users(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	company_name VARCHAR(100) NOT NULL,
-	category_id INT FOREIGN KEY REFERENCES categories(id)NOT NULL,	
+	category_id INT FOREIGN KEY REFERENCES categories(id) NOT NULL,	
 	business_hours INT NOT NULL,
 	offers INT FOREIGN KEY REFERENCES offers(id),
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(75) NOT NULL,
-	phone_number INT(20) NOT NULL,
+	phone_number VARCHAR(20) NOT NULL,
 	description VARCHAR(300),
 	email VARCHAR(150) NOT NULL,
 	password VARCHAR(255) NOT NULL
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS addresses(
 	company_id INT FOREIGN KEY REFERENCES business_users(id) NOT NULL,
 	city VARCHAR(100) NOT NULL,
 	street_name VARCHAR(100) NOT NULL,
-	post_code INT(10) NOT NULL,
+	post_code VARCHAR(10) NOT NULL,
 	built_number INT(5) NOT NULL, 
 );
 
